@@ -1,0 +1,122 @@
+<!-- $Id: help.html,v 1.3 2005/12/28 21:50:22 vickery Exp $ -->
+<html><head><title>Fourier Laboratory Help</title>
+<style type="text/css">
+	h1 {
+		text-align: center;
+		font-family: sans-serif;
+	}
+	h2 {
+		font-family: sans-serif;
+	}
+	body 
+	{
+		background: #ffeeff;
+		margin:			10px;
+	}
+</style>
+</head>
+<body>
+
+<h1>FFT Laboratory Help</h1>
+
+<h2>Introduction</h2>
+
+  <p>This application helps you visualize two different aspects of
+  Fourier analysis:</p>
+  
+  <ol>
+
+    <li>How a complex waveform can be decomposed into the sum of
+    simple sinusoids.  It does this backwards: instead of
+    <em>analyzing</em> an existing waveform, you use the program to
+    <em>generate</em> a waveform by mixing sinusoids.</li>
+
+    <li>How various sampling parameters affect the result of applying
+     an FFT analysis on a complex waveform you have generated.</li>
+
+  </ol>
+
+<h2>Procedure</h2>
+
+  <h3>Construct a waveform from component sinusoids</h3>
+
+    <p>Initially, there is a single sinusoid, a sine wave with a
+    frequency of 440 Hz, displayed.  There are three controls for this
+    wave on the right side of the window, which you can use to change
+    its frequency, phase, and amplitude.  As you manipulate these
+    controls, you will see their effects on the composite waveform in
+    the top left panel and in the FFT waveform in the bottom left
+    panel.</p>
+
+  	<p>Each time you click "Add a New Signal Component," another
+  	 sinusoid is added to the composite signal, and you can manipulate
+  	 its frequency, phase, and amplitude using the controls provided
+  	 for it.</p>
+  	
+    <p>Each component signal also has buttons you can click to change:
+    <ul>
+      <li>The color used to draw that component in the composite signal</li>
+      <li>Whether to draw the shape of that component in the composite
+          signal or not</li>
+      <li>Whether to include that component in the calculation of the
+          composite signal or not</li>
+      <li>To delete that component completely from the program</li>
+    </ul>
+    </p>
+
+  <h3>Set the sampling parameters</h3>
+    
+    <p>You can use the controls below the time domain waveform display
+    to zoom or pan the waveform and to set various viewing options for
+    it.  If you mouse over the waveform, the coordinates of the mouse
+    cursor will show numerical values of the points in the window.
+    Click in this panel to turn this display on and off.  The number of
+    components and maximum amplitude of the composite waveform are
+    also displayed; they can be dragged around the window if they
+    obscure something you want to be able to see, and they will be
+    hidden if you click the mouse.</p>
+  	
+    <p>The controls below the time domain waveform display also let
+    you adjust the following sampling parameters:</p>
+
+    <ul>
+
+      <li>Sample rate in samples per second.  If you set this value to
+      less than twice the frequency of the highest frequency
+      sinusoidal component, the program displays a message warning you
+      that the rate is less than the Nyquist frequency, and the FFT
+      will not capture the highest frequency component(s)
+      accurately.</li>
+  		
+      <li>Bits per sample.  This parameter determines how accurately
+      the sample values approximate the waveform being sampled.  If
+      you choose the view samples option, you will be able to see the
+      effect of this parameter in the waveform.
+
+    </ul>
+  	
+    <h3>Set the FFT calculation parameters</h3>
+
+      <p>The panel in the lower left corner displays the frequency
+      analysis of the waveform you generated in the time domain.
+      <em>The FFT calculation to produce this analysis is not correct,
+      and the display only "sort of"; represents the frequency domain
+      at this time.</em></p>
+
+  <h2>Saving Samples</h2>
+
+  <p>At any time, you can save the set of samples along with the
+  sampling parameters (sample rate, bits per sample, number of
+  samples) in a text file.  By default, each parameter value and each
+  sample value is saved as a single numeric line of text.  If you
+  select "Save Samples As M-file" from the Option menu, you can save
+  the information as a MatLab M-file.  If you then run this file from
+  within MatLab (type the file name without the ".m" extension),
+  MatLab variables will be initialized with the parameter and sample
+  values, and MatLab will plot the frequency domain representation of
+  the signal.</p>
+
+<hr>
+</body>
+</html>
+
